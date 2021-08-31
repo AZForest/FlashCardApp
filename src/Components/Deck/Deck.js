@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { Switch, Route, Link, useRouteMatch, useParams, useHistory } from 'react-router-dom';
 import Card from "../Card/Card";
 import Study from "../Study/Study";
 import CreateDeck from "../Deck/CreateDeck/CreateDeck";
 import { deleteCard, deleteDeck, readDeck } from "../../utils/api/index";
 import AddCard from "../Card/AddCard/AddCard";
+import EditCard from "../Card/EditCard/EditCard";
 
 function Deck({ decks, setDecks }) {
     
+    const history = useHistory();
     const { deckId } = useParams();
     const { url } = useRouteMatch();
     const [ deck, setDeck ] = useState(undefined);
     //const [ cards, setCards ] = useState(undefined);
 
     useEffect(() => {
-        console.log("triggering get deck...")
         async function getDeck(id) {
-            
             const deck = await readDeck(id);
-            //console.log(deck);
             setDeck(deck);
         }
         getDeck(deckId);
@@ -29,6 +28,7 @@ function Deck({ decks, setDecks }) {
             let purgedDeck = decks.filter(deck => deck.id !== id);
             setDecks(purgedDeck);
             deleteDeck(id);
+            history.push('/');
         }
     }
 
@@ -80,13 +80,13 @@ function Deck({ decks, setDecks }) {
                     <Study />
                 </Route>
                 <Route path={`${url}/edit`}>
-                    <CreateDeck id={deck ? deck.id : ""} edit={true} />
+                    <CreateDeck id={deck ? deck.id : ""} edit={true} setDecks={setDecks} setParentDeck={setDeck}/>
                 </Route>
                 <Route path={`${url}/cards/new`}>
                     <AddCard deckId={deck ? deck.id : ""} edit={false} setParentDeck={setDeck} decks={decks} setDecks={setDecks} />
                 </Route>
                 <Route path={`${url}/cards/:cardId/edit`}>
-                    <AddCard deckId={deck ? deck.id : ""} edit={true} setParentDeck={setDeck}/>
+                    <EditCard deckId={deck ? deck.id : ""} setParentDeck={setDeck}/>
                 </Route>
             </Switch>
         </>

@@ -7,7 +7,6 @@ function Decks({ decks, setDecks }) {
 
     const { url } = useRouteMatch();
 
-
     function deleteHandler(id) {
         if (window.confirm("Delete this deck?")) {
             let purgedDeck = decks.filter(deck => deck.id !== id);

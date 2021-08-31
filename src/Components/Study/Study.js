@@ -13,7 +13,6 @@ function Study() {
     useEffect(() => {
         async function getDeck(id) {
             const deckContents = await readDeck(id);
-            console.log(deckContents);
             setDeck(deckContents);
         }
         getDeck(deckId);

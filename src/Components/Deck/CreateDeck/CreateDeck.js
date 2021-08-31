@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, Link, Redirect } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { createDeck, listDecks, readDeck, updateDeck } from '../../../utils/api/index';
 
-function CreateDeck({ decks, setDecks, edit, id }) {
+function CreateDeck({ decks, setDecks, setParentDeck, edit, id }) {
 
     const history = useHistory();
     
@@ -34,7 +34,6 @@ function CreateDeck({ decks, setDecks, edit, id }) {
     function changeHandler(string) {
         if (string === "name") {
             const inputName = document.querySelector("#name").value;
-            //console.log(inputName);
             const newDeck = {
                 ...deck,
                 name: inputName
@@ -42,7 +41,6 @@ function CreateDeck({ decks, setDecks, edit, id }) {
             setDeck(newDeck);
         } else {
             const desc = document.querySelector("#description").value;
-            //console.log(desc);
             const newDeck = {
                 ...deck,
                 description: desc
@@ -52,18 +50,30 @@ function CreateDeck({ decks, setDecks, edit, id }) {
     }
     async function submitHandler() {
         if (!edit) {
-            console.log(decks);
-            const results = await createDeck(deck);
-            const list = await listDecks();
-            console.log(list);
-            const x = await setDecks(list);
-            console.log(decks);
-            history.replace(`/deck/${deck.id}`);
+            if (validateInputs()) {
+                const results = await createDeck(deck);
+                const list = await listDecks();
+                const newDecks = await setDecks(list);
+                history.push(`/decks/${deck.id}`);
+            } else {
+                window.alert("Inputs cannot be empty");
+            }
         } else {
-            const results = await updateDeck(deck);
-            history.push(`/deck/${deck.id}`);
+            if (validateInputs()) {
+                const results = await updateDeck(deck);
+                const list = await listDecks();
+                const newDecks = await setDecks(list);
+                const newDeck = await setParentDeck(deck);
+                history.push(`/decks/${deck.id}`);
+            } else {
+                window.alert("Inputs cannot be empty");
+            }
         }
         
+    }
+
+    function validateInputs() {
+        return deck.name.trim().length > 0 && deck.description.trim().length > 0;
     }
 
     return (
