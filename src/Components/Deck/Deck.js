@@ -13,7 +13,6 @@ function Deck({ decks, setDecks }) {
     const { deckId } = useParams();
     const { url } = useRouteMatch();
     const [ deck, setDeck ] = useState(undefined);
-    //const [ cards, setCards ] = useState(undefined);
 
     useEffect(() => {
         async function getDeck(id) {

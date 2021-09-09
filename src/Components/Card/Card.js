@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import AddCard from "./AddCard/AddCard";
+import { Link, useRouteMatch } from "react-router-dom";
 
 function Card({ front, back, id, cardDelete }) {
     const { url } = useRouteMatch();
@@ -8,7 +7,7 @@ function Card({ front, back, id, cardDelete }) {
     return (
         <>
         <div className="card p-3">
-            <div className="d-flex">
+            <div>
                 <p>{front}</p>
                 <p>{back}</p>
             </div>
