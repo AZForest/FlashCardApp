@@ -7,23 +7,13 @@
     },
     {
       "id": 34,
-      "name": "Some Deck",
-      "description": "new deck desc"
-    },
-    {
-      "id": 11,
-      "name": "deck 3",
-      "description": "bgt"
+      "name": "Animals",
+      "description": "Animals Deck"
     },
     {
       "id": 30,
       "name": "Rendering In React",
       "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. "
-    },
-    {
-      "id": 17,
-      "name": "deck 7 ",
-      "description": "woolx"
     }
   ],
   "cards": [
@@ -41,32 +31,32 @@
     },
     {
       "id": 568,
-      "front": "qaq",
-      "back": "xaa",
+      "front": "Question 3",
+      "back": "Answer 3",
       "deckId": 2
     },
     {
       "id": 488,
-      "front": "frontcrd",
-      "back": "backside",
+      "front": "Question 1",
+      "back": "Answer 1",
       "deckId": 34
     },
     {
       "id": 853,
-      "front": "a",
-      "back": "bc",
+      "front": "Question 2",
+      "back": "Answer 2",
       "deckId": 34
     },
     {
       "id": 542,
-      "front": "a",
-      "back": "z",
+      "front": "Question 3",
+      "back": "Answer 3",
       "deckId": 34
     },
     {
       "id": 499,
-      "front": "wq",
-      "back": "re",
+      "front": "Question 4",
+      "back": "Answer 4",
       "deckId": 2
     },
     {
@@ -94,39 +84,9 @@
       "deckId": 30
     },
     {
-      "id": 627,
-      "front": "",
-      "back": "",
-      "deckId": 30
-    },
-    {
-      "id": 208,
-      "front": "question",
-      "back": "thisb",
-      "deckId": 11
-    },
-    {
-      "id": 116,
-      "front": "utopia",
-      "back": "",
-      "deckId": 11
-    },
-    {
-      "id": 432,
-      "front": "e",
-      "back": "zxcv",
-      "deckId": 11
-    },
-    {
-      "id": 935,
-      "front": "bxcv",
-      "back": "mn",
-      "deckId": 11
-    },
-    {
       "id": 798,
-      "front": "asdf",
-      "back": "fdsa",
+      "front": "Question 5",
+      "back": "Answer 5",
       "deckId": 2
     }
   ]
