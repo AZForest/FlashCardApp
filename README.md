@@ -49,5 +49,5 @@ To get the app running on your machine:
 ### Built with:
 
 * React, including Router
-*  * Created with create-react-app
+  * Created with [create-react-app](https://github.com/facebook/create-react-app)
 * Bootstrap
