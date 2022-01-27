@@ -50,4 +50,4 @@ To get the app running on your machine:
 
 * React, including Router
   * Created with [create-react-app](https://github.com/facebook/create-react-app)
-* Bootstrap
+* [Bootstrap](https://getbootstrap.com/)
