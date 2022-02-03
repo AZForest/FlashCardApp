@@ -14,6 +14,11 @@
       "id": 30,
       "name": "Rendering In React",
       "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. "
+    },
+    {
+      "id": 19,
+      "name": "Yellow Deck",
+      "description": "Description of Yellow Deck"
     }
   ],
   "cards": [
